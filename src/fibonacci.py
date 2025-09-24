@@ -12,7 +12,7 @@ def fibonacci(n: int) -> int:
     b = 1
 
     if n < 0:
-        print("Incorrect input")
+        raise ValueError('Fibonacci series can not be negative.')
 
     elif n == 0:
         return 0

@@ -1,21 +1,17 @@
-def fibonacci(n):
-    a = 0
-    b = 1
 
+fibonacci_array = [0, 1]
+
+def fibonacci(n):
     if n < 0:
         print("Incorrect input")
 
-    if n == 0:
-        return 0
+    if n < len(fibonacci_array):
+        return fibonacci_array[n]
 
-    if n == 1:
-        return b
-    else:
-        for i in range(1, n):
-            c = a + b
-            a = b
-            b = c
-        return b
+    for i in range(n - len(fibonacci_array) + 1):
+        fibonacci_array.append(fibonacci_array[-1] + fibonacci_array[-2])
+    print(fibonacci_array)
+    return fibonacci_array[-1]
 
 
 if __name__ == "__main__":

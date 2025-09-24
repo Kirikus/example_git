@@ -1,6 +1,7 @@
 """Fibonacci series module."""
 
 
+fibonacci_array = [0, 1]
 
 def fibonacci(n: int) -> int:
     """Fibonacci series.
@@ -8,22 +9,16 @@ def fibonacci(n: int) -> int:
     :param n: fibonacci number to return.
     :return: n-th fib. number.
     """
-    a = 0
-    b = 1
-
     if n < 0:
         print("Incorrect input")
 
-    elif n == 0:
-        return 0
+    if n < len(fibonacci_array):
+        return fibonacci_array[n]
 
-    elif n == 1:
-        return b
-    for _ in range(1, n):
-        c = a + b
-        a = b
-        b = c
-    return b
+    for _ in range(n - len(fibonacci_array) + 1):
+        fibonacci_array.append(fibonacci_array[-1] + fibonacci_array[-2])
+    print(fibonacci_array)
+    return fibonacci_array[-1]
 
 
 if __name__ == "__main__":
